@@ -1,6 +1,4 @@
-Project Planning Deliverables
-You will review the following with your instructional team BEFORE you start to code.
-Scope: What are you planning to build? What do you reasonably think you can implement in the time period? What features will your app have?
+
 
 
 I am building an app that helps a user stay accountable to a set goal through a daily check-in with a group/community. The check-in will consist of a 500 character or less reflection on the actions, thoughts, and feelings that arose when attempting to commit to the set goal. 
@@ -39,24 +37,29 @@ Users want to achieve their goals but not as a loner who clenches their fist thr
 
 
 
-Wireframes: Sketch out what your core pages will look like and how they will work. Consider making a paper prototype to demonstrate and/or test key user interactions.
+Wireframes: 
+[Login Page.pdf](https://github.com/mariaximenez/signposts/files/8834792/Login.Page.pdf)
+
+[Capstone Sign Up Page.pdf](https://github.com/mariaximenez/signposts/files/8834802/Capstone.Sign.Up.Page.pdf)
+
+![Capstone Profile Page](https://user-images.githubusercontent.com/101551729/171924428-019a3ebf-bb44-4469-8cca-70278cc4f5ff.jpg)
+
+[GOAL PAGE.pdf](https://github.com/mariaximenez/signposts/files/8834807/GOAL.PAGE.pdf)
 
 
+Data Models: 
+![CAPSTONE MODEL DIAGRAM ](https://user-images.githubusercontent.com/101551729/171924350-904b5ba6-dd14-4636-88ec-f4b682d2940b.jpg)
+
+[ERD CAPSTONE PROJECT.pdf](https://github.com/mariaximenez/signposts/files/8834790/ERD.CAPSTONE.PROJECT.pdf)
 
 
-
-Data Models: Draw out the models and any associations for your project in an entity relationship diagram (ERD).
-
-
-
-
-Milestones: Divide your work into parts - the most essential features for your MVP, features that are important but not essential, and features that can be saved for a later iteration. Create 3-5 major milestones with dates outlining when you expect essential features will be done.
+Milestones: 
 
 
 
 June 3 (Friday): Planning, Models, Sign-up, Log-In
-June 4 (Saturday): Templates for pages
-June 5 (Sunday): Create, Edit, Delete Post and Comment
+June 4 (Saturday): Create, Edit, Delete Post and Comment.
+June 5 (Sunday):  Templates for pages
 June 6 (Monday): Add self to group, Add users to group
 June 7 (Tuesday): Earn badges and display
 June 8 (Wednesday): Stretch goal and styling
@@ -68,4 +71,4 @@ June 12 (Sunday): Outcomes Assignments
 
 
 
-Feasibility Study (optional): If you're using an external API or scraping a website, make sure you can get that data. If you're using a new language, framework, or tool, go through its getting started tutorial. We will ask to see your results.
+
