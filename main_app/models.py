@@ -7,13 +7,13 @@ class User(models.Model):
     username = models.CharField(max_length=100)
     password = models.CharField(max_length=100)
     goal_description = models.CharField(max_length=500)
-    avatar_img = models.CharField(max_length=250)
+    avatar_img = models.CharField(max_length=500)
   
     
     def __str__(self):
-        return self.username
+        return self.first_name
 
     class Meta:
-        ordering = ['username']
+        ordering = ['first_name']
 
 

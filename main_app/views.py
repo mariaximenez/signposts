@@ -1,12 +1,13 @@
 from django.shortcuts import render
-from django.views import View # <- View class to handle requests
-from django.http import HttpResponse # <- a class to handle sending a type of response
+from django.views import View
+from django.http import HttpResponse 
 from django.views.generic.base import TemplateView
+from .models import User as UserModel
 
 
-# Create your views here.
 
-# Here we will be creating a class called Home and extending it from the View class
+
+
 class Login(TemplateView):
      template_name = "login.html"
 
@@ -31,12 +32,8 @@ class UserList(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["users"] = users # this is where we add the key into our context object for the view to use
+        context["users"] = UserModel.objects.all() 
         return context
-
-users = [ 
-    User ("Maria", "Jimenez", "mariaximenez", "Toby","Workout more", "https://i.pinimg.com/originals/21/e8/ab/21e8ab124a60870018c29387f190185c.png")
-]
 
 
 
