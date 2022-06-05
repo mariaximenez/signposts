@@ -1,0 +1,45 @@
+{% extends 'base.html' %} 
+{% block content %}
+<div class="detail__img">
+    <img src="{{group.goal_img}}" alt="{{group.name}}" />
+</div>
+<div class="detail__container">
+  
+    <div class="buttons">
+        <div class="buttons">
+        <a href="{% url 'group_update' group.pk %}" class="button is-info"> Updates
+            <span class="icon">
+                <i class="fas fa-edit"></i>
+            </span>
+        </a>
+        <a href="{% url 'group_delete' group.pk %}" class="button is-danger">
+            <span class="icon">
+                <i class="fas fa-trash-alt"></i>
+            </span>
+        </a>
+    </div>
+    </div>
+    
+    {% for group in group.all %}
+    <div class="museum">
+      <span>{{forloop.counter}}</span>
+      <span><b>{{group.name}}</b></span>
+      <span>{{group.goal}}</span>
+    </div>
+		{% empty %}
+    <article class="message">
+      <div class="message-header">
+        <p>No Group Available</p>
+      </div>
+    </article>
+
+    {% endfor %}
+  </div>
+<!--  above about section  -->
+    <div class="detail__about">
+        <h4 class="title is-4">About</h4>
+        <p>{{group.name}}</p>
+    </div>
+</div>
+
+{% endblock %}

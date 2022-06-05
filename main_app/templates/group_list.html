@@ -8,7 +8,7 @@
 <h1 class="title pt-5">Groups</h1>
 <div class="gallery">
   {% for group in groups %}
-  <a href="">
+  <a href="{% url 'group_detail' group.pk %}">
     <div class="card">
       <div class="card-image">
         <figure class="image is-square">
