@@ -5,6 +5,7 @@ from django.views.generic.base import TemplateView
 from .models import User as User
 from .models import Group as GroupModel
 from .models import Profile as ProfileModel
+from .models import Post as PostModel
 from django.views.generic import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse
@@ -76,6 +77,17 @@ class ProfileDelete(DeleteView):
     template_name = "profile_delete_confirmation.html"
     success_url = "/profiles/"
 
+@method_decorator(login_required, name='dispatch')
+class MyProfilePost(TemplateView):
+    template_name = "myprofile_detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["posts"] = PostModel.objects.all() 
+        return context
+
+
+
 
 @method_decorator(login_required, name='dispatch')
 class MyProfileDetail(TemplateView):
@@ -87,6 +99,9 @@ class MyProfileDetail(TemplateView):
         context["profile"] = ProfileModel.objects.filter(user=self.request.user)
         return context
 
+
+
+@method_decorator(login_required, name='dispatch')
 class MyGroupDetail(TemplateView):
     template_name = "mygroup_detail.html"
 
@@ -97,9 +112,17 @@ class MyGroupDetail(TemplateView):
         return context
 
 
+@method_decorator(login_required, name='dispatch')
+class MyGroupPost(TemplateView):
+    template_name = "mygroup_detail.html"
 
-class Post(TemplateView):
-     template_name = "posts.html"
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["posts"] = PostModel.objects.all() 
+        return context
+
+
+
 
 
 class Signup(View):

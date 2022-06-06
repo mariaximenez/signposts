@@ -14,6 +14,8 @@ urlpatterns = [
     path('groups/<int:pk>/delete/', views.GroupDelete.as_view(), name="group_delete"),
     path('accounts/signup/', views.Signup.as_view(), name="signup"),
     path('myprofile/', views.MyProfileDetail.as_view(), name="myprofile_detail"),
+    path('myprofileposts/', views.MyProfilePost.as_view(), name="myprofile_detail"),
     path('mygroup/', views.MyGroupDetail.as_view(), name="mygroup_detail"),
+    path('mygroupposts/', views.MyGroupPost.as_view(), name="mygroup_detail"),
 
 ]
