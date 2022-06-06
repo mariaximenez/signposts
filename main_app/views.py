@@ -11,7 +11,8 @@ from django.urls import reverse
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import redirect
-
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 
 
@@ -76,7 +77,7 @@ class ProfileDelete(DeleteView):
     success_url = "/profiles/"
 
 
-
+@method_decorator(login_required, name='dispatch')
 class MyProfileDetail(TemplateView):
     template_name = "myprofile_detail.html"
 
@@ -92,7 +93,7 @@ class MyGroupDetail(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)      
         name = self.request.GET.get("name")
-        context["group"] = GroupModel.objects.all()
+        context["profile"] = ProfileModel.objects.filter(user=self.request.user)
         return context
 
 

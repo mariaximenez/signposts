@@ -1,19 +1,19 @@
 {% extends 'base.html' %} 
 {% block content %}
 <div class="detail__img">
-    <img src="{{group.goal_img}}" alt="{{group.name}}" />
+    <img src="{{profile.group.goal_img}}" alt="{{profile.group.name}}" />
 </div>
 <div class="detail__container">
   
    
-    {% for group in group.all %}
+    {% for profile in profile.all %}
     <div class="museum">
       <span>{{forloop.counter}}</span>
       <span><b>{{group.name}}</b></span>
       <div class="detail__img">
-        <img src="{{group.goal_img}}" alt="{{group.name}}" />
+        <img src="{{profile.group.goal_img}}" alt="{{profile.group.name}}" />
     </div>
-      <span>{{group.goal}}</span>
+      <span>{{profile.group.goal}}</span>
     </div>
 		{% empty %}
     <article class="message">
@@ -27,7 +27,7 @@
 <!--  above about section  -->
     <div class="detail__about">
         <h4 class="title is-4">About</h4>
-        <p>{{group.name}}</p>
+        <p>{{profile.group.name}}</p>
     </div>
 </div>
 
