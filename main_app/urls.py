@@ -12,6 +12,7 @@ urlpatterns = [
     path('users/<int:pk>/delete/', views.UserDelete.as_view(), name="user_delete"),
     path('groups/<int:pk>/update/', views.GroupUpdate.as_view(), name="group_update"),
     path('groups/<int:pk>/delete/', views.GroupDelete.as_view(), name="group_delete"),
+    path('accounts/signup/', views.Signup.as_view(), name="signup")
 
 
 ]

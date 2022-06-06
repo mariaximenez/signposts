@@ -2,11 +2,14 @@ from django.shortcuts import render
 from django.views import View
 from django.http import HttpResponse 
 from django.views.generic.base import TemplateView
-from .models import User as UserModel
+from .models import User as User
 from .models import Group as GroupModel
 from django.views.generic import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import redirect
 
 
 
@@ -28,7 +31,7 @@ class UserList(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["users"] = UserModel.objects.all() 
+        context["users"] = User.objects.all() 
         return context
 
 
@@ -47,7 +50,7 @@ class GroupDetail(DetailView):
 
 
 class UserDetail(DetailView):
-    model = UserModel
+    model = User
     template_name = "user_detail.html"
 
 
@@ -67,7 +70,7 @@ class GroupDelete(DeleteView):
     success_url = "/groups/"
 
 class UserUpdate(UpdateView):
-    model = UserModel
+    model = User
     fields = ['first_name', 'last_name', 'username', 'password', 'goal_description','avatar_img', 'group']
     template_name = "user_update.html"
 
@@ -77,9 +80,27 @@ class UserUpdate(UpdateView):
  
 
 class UserDelete(DeleteView):
-    model = UserModel
+    model = User
     template_name = "user_delete_confirmation.html"
     success_url = "/users/"
 
 class Post(TemplateView):
      template_name = "posts.html"
+
+
+class Signup(View):
+    # show a form to fill out
+    def get(self, request):
+        form = UserCreationForm()
+        context = {"form": form}
+        return render(request, "registration/signup.html", context)
+    # on form ssubmit validate the form and login the user.
+    def post(self, request):
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect("user_list")
+        else:
+            context = {"form": form}
+            return render(request, "registration/signup.html", context)
