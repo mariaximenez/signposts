@@ -29,6 +29,7 @@ class Profile(models.Model):
     goal_description = models.CharField(max_length=500, default='1')
     avatar_img = models.CharField(max_length=500,default='1')
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    group = models.ForeignKey(Group, on_delete=models.CASCADE, related_name="profiles", default='1')
    
 
     def __str__(self):

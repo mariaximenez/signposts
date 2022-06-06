@@ -16,19 +16,6 @@ from django.shortcuts import redirect
 
 
 
-class Login(TemplateView):
-     template_name = "login.html"
-
-
-
-# class Signup(TemplateView):
-#      template_name = "signup.html"
-
-
-
-
-
-
 
 class ProfileList(TemplateView):
     template_name = "profile_list.html"
@@ -87,6 +74,28 @@ class ProfileDelete(DeleteView):
     model = ProfileModel
     template_name = "profile_delete_confirmation.html"
     success_url = "/profiles/"
+
+
+
+class MyProfileDetail(TemplateView):
+    template_name = "myprofile_detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)      
+        name = self.request.GET.get("name")
+        context["profile"] = ProfileModel.objects.all()
+        return context
+
+class MyGroupDetail(TemplateView):
+    template_name = "mygroup_detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)      
+        name = self.request.GET.get("name")
+        context["group"] = GroupModel.objects.all()
+        return context
+
+
 
 class Post(TemplateView):
      template_name = "posts.html"

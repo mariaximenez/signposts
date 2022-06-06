@@ -5,7 +5,7 @@
 
 {% block content %}
 
-<h1 class="title pt-5">Users</h1>
+<h1 class="title pt-5">Profiles</h1>
 <div class="gallery">
   {% for profile in profiles %}
   <a href="{% url 'profile_detail' profile.pk %}">
