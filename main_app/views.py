@@ -83,7 +83,7 @@ class MyProfileDetail(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)      
         name = self.request.GET.get("name")
-        context["profile"] = ProfileModel.objects.all()
+        context["profile"] = ProfileModel.objects.filter(user=self.request.user)
         return context
 
 class MyGroupDetail(TemplateView):
