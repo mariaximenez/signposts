@@ -1,18 +1,18 @@
 {% extends 'base.html' %} 
 {% block content %}
 <div class="detail__img">
-    <img src="{user.avatar_img}}" alt="{{user.first_name}}" />
+    <img src="{{profile.avatar_img}}" alt="{{profile.name}}" />
 </div>
 <div class="detail__container">
   
     <div class="buttons">
         <div class="buttons">
-        <a href="{% url 'user_update' user.pk %}" class="button is-info"> Updates
+        <a href="{% url 'profile_update' profile.pk %}" class="button is-info"> Updates
             <span class="icon">
                 <i class="fas fa-edit"></i>
             </span>
         </a>
-        <a href="{% url 'user_delete' user.pk %}" class="button is-danger">
+        <a href="{% url 'profile_delete' profile.pk %}" class="button is-danger">
             <span class="icon">
                 <i class="fas fa-trash-alt"></i>
             </span>
@@ -20,16 +20,16 @@
     </div>
     </div>
     
-    {% for user in user.group.all %}
+    {% for profile in profile.all %}
     <div class="museum">
       <span>{{forloop.counter}}</span>
-      <span><b>{{user.first_name}}</b></span>
-      <span>{{user.goal_description}}</span>
+      <span><b>{{profile.name}}</b></span>
+      <span>{{profile.goal_description}}</span>
     </div>
 		{% empty %}
     <article class="message">
       <div class="message-header">
-        <p>No User Available</p>
+        <p>No Profile Available</p>
       </div>
     </article>
 
@@ -37,7 +37,7 @@
   </div>
 <!--  above about section  -->
     <div class="detail__about">
-        <h4 class="title is-4">About</h4>
+        <h4 class="title is-4">Badges</h4>
         <p>{{painting.about}}</p>
     </div>
 </div>

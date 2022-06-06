@@ -1,28 +1,28 @@
 INSERT INTO main_app_user(first_name, last_name, username, password)
   VALUES
-    ('Gloria', 'Steinem', 'gloriasteinem', 'password');
+    ('Gloria', 'Steinem', 'gloriasteinem', 'steinem1');
 
 INSERT INTO main_app_user(first_name, last_name, username, password)
   VALUES
-    ('Angela', 'Davis', 'angeladavis', 'password1');
+    ('Angela', 'Davis', 'angeladavis', 'davis123');
 
 INSERT INTO main_app_user(first_name, last_name, username, password)
   VALUES
-    ('Wangari', 'Maathai', 'wangarimaathai', 'password2');
+    ('Wangari', 'Maathai', 'wangarimaathai', 'maathai1');
 
 INSERT INTO main_app_user(first_name, last_name, username, password)
   VALUES
-    ('Malala', 'Yousafzai', 'malalayousafzai', 'password3');
+    ('Malala', 'Yousafzai', 'malalayousafzai', 'literacy1');
 
 INSERT INTO main_app_user(first_name, last_name, username, password)
   VALUES
-    ('Greta', 'Thunber', 'gretathunber', 'password4');
+    ('Greta', 'Thunber', 'gretathunber', 'climate123');
 
 INSERT INTO main_app_user(first_name, last_name, username, password)
   VALUES
-    ('Bell', 'Hooks', 'bellhooks', 'password5');
+    ('Bell', 'Hooks', 'bellhooks', 'loveverb1');
 
 INSERT INTO main_app_user(first_name, last_name, username, password)
   VALUES
-    ('Nina', 'Gualinga', 'ninagualinga', 'password6');
+    ('Nina', 'Gualinga', 'ninagualinga', 'amazon123');
 

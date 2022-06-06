@@ -7,16 +7,16 @@
 
 <h1 class="title pt-5">Users</h1>
 <div class="gallery">
-  {% for user in users %}
-  <a href="{% url 'user_detail' user.pk %}">
+  {% for profile in profiles %}
+  <a href="{% url 'profile_detail' profile.pk %}">
     <div class="card">
       <div class="card-image">
         <figure class="image is-square">
-          <img src="{{user.avatar_img}}" alt="{{user.username}}" />
+          <img src="{{profile.avatar_img}}" alt="{{profile.name}}" />
         </figure>
       </div>
       <div class="card-header">
-        <p class="card-header-title">{{user.first_name}}</p>
+        <p class="card-header-title">{{profile.name}}</p>
       </div>
     </div>
   </a>

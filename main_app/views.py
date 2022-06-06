@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.views.generic.base import TemplateView
 from .models import User as User
 from .models import Group as GroupModel
+from .models import Profile as ProfileModel
 from django.views.generic import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse
@@ -26,12 +27,15 @@ class Login(TemplateView):
 
 
 
-class UserList(TemplateView):
-    template_name = "user_list.html"
+
+
+
+class ProfileList(TemplateView):
+    template_name = "profile_list.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["users"] = User.objects.all() 
+        context["profiles"] = ProfileModel.objects.all() 
         return context
 
 
@@ -49,9 +53,9 @@ class GroupDetail(DetailView):
     template_name = "group_detail.html"
 
 
-class UserDetail(DetailView):
-    model = User
-    template_name = "user_detail.html"
+class ProfileDetail(DetailView):
+    model = ProfileModel
+    template_name = "profile_detail.html"
 
 
 class GroupUpdate(UpdateView):
@@ -69,20 +73,20 @@ class GroupDelete(DeleteView):
     template_name = "group_delete_confirmation.html"
     success_url = "/groups/"
 
-class UserUpdate(UpdateView):
-    model = User
-    fields = ['first_name', 'last_name', 'username', 'password', 'goal_description','avatar_img', 'group']
-    template_name = "user_update.html"
+class ProfileUpdate(UpdateView):
+    model = ProfileModel
+    fields = ['name', 'badge_num', 'goal_description','avatar_img', 'user']
+    template_name = "profile_update.html"
 
 
     def get_success_url(self):
-        return reverse('user_detail', kwargs={'pk': self.object.pk})
+        return reverse('profile_detail', kwargs={'pk': self.object.pk})
  
 
-class UserDelete(DeleteView):
-    model = User
-    template_name = "user_delete_confirmation.html"
-    success_url = "/users/"
+class ProfileDelete(DeleteView):
+    model = ProfileModel
+    template_name = "profile_delete_confirmation.html"
+    success_url = "/profiles/"
 
 class Post(TemplateView):
      template_name = "posts.html"

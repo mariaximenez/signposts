@@ -4,12 +4,12 @@ from . import views
 
 urlpatterns = [
     path('', views.Login.as_view(), name="login"),
-    path('users/', views.UserList.as_view(), name="user_list"), 
+    path('profiles/', views.ProfileList.as_view(), name="profile_list"), 
     path('groups/', views.GroupList.as_view(), name="group_list"),
-    path('users/<int:pk>/', views.UserDetail.as_view(), name="user_detail"),
+    path('profiles/<int:pk>/', views.ProfileDetail.as_view(), name="profile_detail"),
     path('groups/<int:pk>/', views.GroupDetail.as_view(), name="group_detail"),
-    path('users/<int:pk>/update/', views.UserUpdate.as_view(), name="user_update"),
-    path('users/<int:pk>/delete/', views.UserDelete.as_view(), name="user_delete"),
+    path('profiles/<int:pk>/update/', views.ProfileUpdate.as_view(), name="profile_update"),
+    path('profiles/<int:pk>/delete/', views.ProfileDelete.as_view(), name="profile_delete"),
     path('groups/<int:pk>/update/', views.GroupUpdate.as_view(), name="group_update"),
     path('groups/<int:pk>/delete/', views.GroupDelete.as_view(), name="group_delete"),
     path('accounts/signup/', views.Signup.as_view(), name="signup")
