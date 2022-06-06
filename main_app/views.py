@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views import View
 from django.http import HttpResponse 
 from django.views.generic.base import TemplateView
-from .models import User as User
+from .models import Profile, User as User
 from .models import Group as GroupModel
 from .models import Profile as ProfileModel
 from .models import Post as PostModel
@@ -14,6 +14,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from django.db.models import F
 
 
 
@@ -110,9 +111,8 @@ class MyGroupPost(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["posts"] = PostModel.objects.all() 
+        context["posts"] = PostModel.objects.all()
         return context
-
 
 
 
