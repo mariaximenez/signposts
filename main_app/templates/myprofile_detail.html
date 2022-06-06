@@ -1,6 +1,7 @@
 {% extends 'base.html' %} 
 {% block content %}
 
+
 <div class="detail__container">  
     {% for profile in profile.all %}
     <div class="museum">
@@ -19,25 +20,12 @@
     </article>
 
     {% endfor %}
-  </div>
-<!--  above about section  -->
+</div>
 
-<div class="detail__container">
-    {% for post in posts.all %}
-    <div class="museum">
-      <span>{{forloop.counter}}</span>
-      <span><b>{{post.profiles}</b></span>
-      <div>{{post.text}}</div>
-      <div>{{post.date}}</div>
-    </div>
-		{% empty %}
-    <article class="message">
-      <div class="message-header">
-        <p>No Post Available</p>
-      </div>
-    </article>
 
-    {% endfor %}
-  </div>
+
+
+
+
 
 {% endblock %}

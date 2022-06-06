@@ -1,0 +1,69 @@
+@method_decorator(login_required, name='dispatch')
+class MyGroupDetail(TemplateView):
+    template_name = "mygroup_detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)      
+        name = self.request.GET.get("name")
+        context["profile"] = ProfileModel.objects.filter(user=self.request.user)
+        return context
+
+
+        def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["posts"] = PostModel.objects.all() 
+        return context
+
+
+
+        <div class="detail__container">
+  
+   
+            {% for profile in profile.all %}
+            <div class="museum">
+              <span>{{forloop.counter}}</span>
+              <span><b>{{group.name}}</b></span>
+              <div class="detail__img">
+                <img src="{{profile.group.goal_img}}" alt="{{profile.group.name}}" />
+            </div>
+              <span>{{profile.group.goal}}</span>
+            </div>
+                {% empty %}
+            <article class="message">
+              <div class="message-header">
+                <p>No Group Available</p>
+              </div>
+            </article>
+        
+            {% endfor %}
+          </div>
+        <!--  above about section  -->
+
+
+        {% extends 'base.html' %} 
+{% block content %}
+
+<div class="detail__container">
+    {% for post in posts.all %}
+    <div class="museum">
+      <span>{{forloop.counter}}</span>
+      <span><b>{{post.profiles}</b></span>
+      <span>{{post.text}}</span>
+      <span>{{post.date}}</span>
+    </div>
+		{% empty %}
+    <article class="message">
+      <div class="message-header">
+        <p>No Post Available</p>
+      </div>
+    </article>
+
+    {% endfor %}
+  </div>
+  </div>
+
+
+
+
+
+{% endblock %}

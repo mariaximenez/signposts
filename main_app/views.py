@@ -99,22 +99,14 @@ class MyProfileDetail(TemplateView):
         context["profile"] = ProfileModel.objects.filter(user=self.request.user)
         return context
 
+   
 
 
-@method_decorator(login_required, name='dispatch')
-class MyGroupDetail(TemplateView):
-    template_name = "mygroup_detail.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)      
-        name = self.request.GET.get("name")
-        context["profile"] = ProfileModel.objects.filter(user=self.request.user)
-        return context
 
 
 @method_decorator(login_required, name='dispatch')
 class MyGroupPost(TemplateView):
-    template_name = "mygroup_detail.html"
+    template_name = "mygroup_post.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
