@@ -12,6 +12,22 @@
     </div>
       <span>{{profile.goal_description}}</span>
     </div>
+    <div class="detail__container">
+  
+        <div class="buttons">
+            <div class="buttons">
+            <a href="{% url 'profile_update' profile.pk %}" class="button is-info"> Updates
+                <span class="icon">
+                    <i class="fas fa-edit"></i>
+                </span>
+            </a>
+            <a href="{% url 'profile_delete' profile.pk %}" class="button is-danger">
+                <span class="icon">
+                    <i class="fas fa-trash-alt"></i>
+                </span>
+            </a>
+        </div>
+        </div>
 		{% empty %}
     <article class="message">
       <div class="message-header">

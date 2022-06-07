@@ -70,24 +70,17 @@ class ProfileUpdate(UpdateView):
 
 
     def get_success_url(self):
-        return reverse('profile_detail', kwargs={'pk': self.object.pk})
+        return reverse('myprofile_detail', kwargs={'pk': self.object.pk})
  
 
 class ProfileDelete(DeleteView):
     model = ProfileModel
     template_name = "profile_delete_confirmation.html"
-    success_url = "/profiles/"
-
-@method_decorator(login_required, name='dispatch')
-class MyProfilePost(TemplateView):
-    template_name = "myprofile_detail.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["posts"] = PostModel.objects.all() 
-        return context
+    success_url = "/myprofile/"
 
 
+
+  
 
 
 @method_decorator(login_required, name='dispatch')
