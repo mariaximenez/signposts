@@ -88,6 +88,12 @@ class MyProfileDetail(TemplateView):
             user=self.request.user)
         return context
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["posts"] = PostModel.objects.all()
+        return context
+
+
 
 class ProfileCreate(CreateView):
     model = ProfileModel
@@ -107,6 +113,8 @@ class MyGroupPost(TemplateView):
         context = super().get_context_data(**kwargs)
         context["posts"] = PostModel.objects.filter(group=context['pk'])
         return context
+
+
 
 
 class PostCreate(CreateView):
