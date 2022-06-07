@@ -41,7 +41,7 @@ class Post(models.Model):
 
     text = models.TextField(max_length=500)
     date = models.DateTimeField(auto_now_add=True)
-    group = models.ForeignKey(Group, on_delete=models.CASCADE, related_name="group", default='1')
+    group = models.ForeignKey(Group, on_delete=models.CASCADE, related_name="post", default='1')
    
     
     
@@ -56,14 +56,13 @@ class Post(models.Model):
 
 class Comment(models.Model):
     text = models.TextField(max_length=500)
+    name = models.CharField(max_length=80, default='mary')
     date = models.DateTimeField(auto_now_add=True)
-    posts = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="posts", default='1')
+    posts = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments", default='1')
    
-  
-    
     
     def __str__(self):
-        return self.text
+        return 'Comment {} by {}'.format(self.text, self.name)
 
     class Meta:
-        ordering = ['text']
+        ordering = ['date']

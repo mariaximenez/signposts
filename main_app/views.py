@@ -1,11 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views import View
-from django.http import HttpResponse 
+from django.http import HttpResponse
 from django.views.generic.base import TemplateView
 from .models import Profile, User as User
 from .models import Group as GroupModel
 from .models import Profile as ProfileModel
 from .models import Post as PostModel
+from .forms import CommentForm
 from django.views.generic import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse
@@ -17,6 +18,9 @@ from django.utils.decorators import method_decorator
 from django.db.models import F
 
 
+class Home(TemplateView):
+        template_name="home.html"
+
 
 
 
@@ -25,7 +29,7 @@ class ProfileList(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["profiles"] = ProfileModel.objects.all() 
+        context["profiles"] = ProfileModel.objects.all()
         return context
 
 
@@ -34,11 +38,8 @@ class GroupList(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["groups"] = GroupModel.objects.all() 
+        context["groups"] = GroupModel.objects.all()
         return context
-
-
-
 
 
 class ProfileDetail(DetailView):
@@ -51,25 +52,24 @@ class GroupUpdate(UpdateView):
     fields = ['name', 'goal', 'goal_img']
     template_name = "group_update.html"
 
-
     def get_success_url(self):
         return reverse('group_detail', kwargs={'pk': self.object.pk})
- 
+
 
 class GroupDelete(DeleteView):
     model = GroupModel
     template_name = "group_delete_confirmation.html"
     success_url = "/groups/"
 
+
 class ProfileUpdate(UpdateView):
     model = ProfileModel
-    fields = ['name', 'badge_num', 'goal_description','avatar_img', 'group']
+    fields = ['name', 'badge_num', 'goal_description', 'avatar_img', 'group']
     template_name = "profile_update.html"
-
 
     def get_success_url(self):
         return reverse('myprofile_detail', kwargs={'pk': self.object.pk})
- 
+
 
 class ProfileDelete(DeleteView):
     model = ProfileModel
@@ -77,23 +77,16 @@ class ProfileDelete(DeleteView):
     success_url = "/myprofile/"
 
 
-
-  
-
-
 @method_decorator(login_required, name='dispatch')
 class MyProfileDetail(TemplateView):
     template_name = "myprofile_detail.html"
 
     def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)      
+        context = super().get_context_data(**kwargs)
         name = self.request.GET.get("name")
-        context["profile"] = ProfileModel.objects.filter(user=self.request.user)
+        context["profile"] = ProfileModel.objects.filter(
+            user=self.request.user)
         return context
-
-   
-
-
 
 
 @method_decorator(login_required, name='dispatch')
@@ -101,22 +94,16 @@ class MyGroupPost(TemplateView):
     template_name = "group_detail.html"
 
     def get_context_data(self, **kwargs):
-        print(self.request)
-        # current user=profile.get
-        print('visit this page')
         context = super().get_context_data(**kwargs)
         context["posts"] = PostModel.objects.filter(group=context['pk'])
-        print(context)
         return context
-
-
 
 
 class PostCreate(CreateView):
     model = PostModel
     fields = ['text', 'group']
     template_name = "post_create.html"
-    
+
     def get_success_url(self):
         return reverse('group_detail', kwargs={'pk': self.object.pk})
 
@@ -125,16 +112,17 @@ class PostUpdate(UpdateView):
     model = PostModel
     fields = ['text']
     template_name = "post_update.html"
+    success_url = "/groups/"
 
+    # def get_success_url(self):
+    #     return reverse('group_detail', kwargs={'pk': self.object.pk})
 
-    def get_success_url(self):
-        return reverse('group_detail', kwargs={'pk': self.object.pk})
- 
 
 class PostDelete(DeleteView):
     model = PostModel
     template_name = "post_delete_confirmation.html"
     success_url = "/groups/"
+
 
 
 
@@ -145,12 +133,13 @@ class Signup(View):
         context = {"form": form}
         return render(request, "registration/signup.html", context)
     # on form ssubmit validate the form and login the user.
+
     def post(self, request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect("user_list")
+            return redirect("home")
         else:
             context = {"form": form}
             return render(request, "registration/signup.html", context)

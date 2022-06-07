@@ -3,7 +3,7 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.ProfileList.as_view(), name="profile_list"),
+    path('', views.Home.as_view(), name="home"),
     path('profiles/', views.ProfileList.as_view(), name="profile_list"), 
     path('groups/', views.GroupList.as_view(), name="group_list"),
     path('profiles/<int:pk>/', views.ProfileDetail.as_view(), name="profile_detail"),
@@ -15,5 +15,6 @@ urlpatterns = [
     path('groups/<int:pk>/new', views.PostCreate.as_view(), name="post_create"),
     path('groups/<int:pk>/update/', views.PostUpdate.as_view(), name="post_update"),
     path('groups/<int:pk>/delete/', views.PostDelete.as_view(), name="post_delete"),
+  
 
 ]
