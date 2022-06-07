@@ -65,7 +65,7 @@ class GroupDelete(DeleteView):
 
 class ProfileUpdate(UpdateView):
     model = ProfileModel
-    fields = ['name', 'badge_num', 'goal_description','avatar_img', 'user']
+    fields = ['name', 'badge_num', 'goal_description','avatar_img', 'group']
     template_name = "profile_update.html"
 
 
@@ -100,11 +100,15 @@ class MyProfileDetail(TemplateView):
 
 @method_decorator(login_required, name='dispatch')
 class MyGroupPost(TemplateView):
-    template_name = "mygroup_post.html"
+    template_name = "group_detail.html"
 
     def get_context_data(self, **kwargs):
+        print(self.request)
+        # current user=profile.get
+        print('visit this page')
         context = super().get_context_data(**kwargs)
-        context["posts"] = PostModel.objects.all()
+        context["posts"] = PostModel.objects.filter(group=context['pk'])
+        print(context)
         return context
 
 
