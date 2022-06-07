@@ -89,6 +89,16 @@ class MyProfileDetail(TemplateView):
         return context
 
 
+class ProfileCreate(CreateView):
+    model = ProfileModel
+    fields = ['name', 'goal_description', 'avatar_img', 'user','group']
+    template_name = "profile_create.html"
+    success_url = "/groups/"
+
+    # def get_success_url(self):
+    #     return reverse('profile_detail', {'pk': self.object.pk})
+
+
 @method_decorator(login_required, name='dispatch')
 class MyGroupPost(TemplateView):
     template_name = "group_detail.html"
