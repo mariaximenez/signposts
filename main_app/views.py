@@ -38,9 +38,7 @@ class GroupList(TemplateView):
         return context
 
 
-class GroupDetail(DetailView):
-    model = GroupModel
-    template_name = "group_detail.html"
+
 
 
 class ProfileDetail(DetailView):
@@ -111,6 +109,32 @@ class MyGroupPost(TemplateView):
         print(context)
         return context
 
+
+
+
+class PostCreate(CreateView):
+    model = PostModel
+    fields = ['text', 'group']
+    template_name = "post_create.html"
+    
+    def get_success_url(self):
+        return reverse('group_detail', kwargs={'pk': self.object.pk})
+
+
+class PostUpdate(UpdateView):
+    model = PostModel
+    fields = ['text']
+    template_name = "post_update.html"
+
+
+    def get_success_url(self):
+        return reverse('group_detail', kwargs={'pk': self.object.pk})
+ 
+
+class PostDelete(DeleteView):
+    model = PostModel
+    template_name = "post_delete_confirmation.html"
+    success_url = "/groups/"
 
 
 
