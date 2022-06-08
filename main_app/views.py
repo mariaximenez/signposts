@@ -18,6 +18,12 @@ from django.utils.decorators import method_decorator
 from django.db.models import F
 
 
+
+
+
+
+
+
 class Home(TemplateView):
         template_name="home.html"
 
@@ -95,8 +101,7 @@ class MyProfileDetail(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         name = self.request.GET.get("name")
-        context["profile"] = ProfileModel.objects.filter(
-            user=self.request.user)
+        context["profile"] = ProfileModel.objects.filter(user=self.request.user)
         return context
 
 class MyProfilePost(TemplateView):
@@ -106,6 +111,15 @@ class MyProfilePost(TemplateView):
         context = super().get_context_data(**kwargs)
         context["posts"] = PostModel.objects.filter(profile=context['pk'])
         return context
+    
+    def count_posts_of(user):
+        return PostModel.objects.filter(user=user).count() 
+  
+    def badge_num(request):
+        badge_num = PostModel.objects.filter(profile=request.user).count()
+        return render(request, 'myprofile_post.html', {'badge_num': badge_num})
+        
+  
 
 
 
@@ -126,7 +140,6 @@ class MyGroupPost(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["posts"] = PostModel.objects.filter(group=context['pk'])
-        
         return context
 
 
