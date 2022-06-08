@@ -16,6 +16,7 @@ from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.db.models import F
+from django. db. models import Count
 
 
 
@@ -104,6 +105,18 @@ class MyProfileDetail(TemplateView):
         context["profile"] = ProfileModel.objects.filter(user=self.request.user)
         return context
 
+  
+    # def badge_num(request):
+    #     # badge_num = PostModel.objects.filter(user=request.user).count()
+    #     badge_num = PostModel.objects.filter(user['pk']).count()
+    #     return render(request, 'myprofile_detail.html', {'badge_num': badge_num})
+    # print(PostModel.objects.count())
+    # print(badge_num)
+
+
+
+
+
 class MyProfilePost(TemplateView):
     template_name = "myprofile_post.html"
     
@@ -112,12 +125,11 @@ class MyProfilePost(TemplateView):
         context["posts"] = PostModel.objects.filter(profile=context['pk'])
         return context
     
-    def count_posts_of(user):
-        return PostModel.objects.filter(user=user).count() 
-  
-    def badge_num(request):
-        badge_num = PostModel.objects.filter(profile=request.user).count()
-        return render(request, 'myprofile_post.html', {'badge_num': badge_num})
+   
+   
+   
+    
+        
         
   
 
