@@ -91,10 +91,10 @@ class MyProfileDetail(TemplateView):
 
 class MyProfilePost(TemplateView):
     template_name = "myprofile_post.html"
+    
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        user=self.request.user
-        context["posts"] = PostModel.objects.filter(name=user)
+        context["posts"] = PostModel.objects.filter(profile=context['pk'])
         return context
 
 

@@ -7,6 +7,9 @@
 <div class="profile_create">
   <a href="/myprofile/new"> Create Your Profile</a>
 </div>
+<div class="profile_posts">
+  <a href="/myprofile/<int:pk>"> See Your Posts</a>
+</div>
 <div class="detail__img">
   <img src="{{profile.avatar_img}}" alt="{{profile.name}}" />
 </div>
@@ -19,6 +22,27 @@
     
     <span>{{profile.goal_description}}</span>
   </div>
+  <div class="detail__container">
+  
+    <div class="buttons">
+        <div class="buttons">
+        <a href="{% url 'post_update' profile.pk %}" class="button is-info"> Updates
+            <span class="icon">
+                <i class="fas fa-edit"></i>
+            </span>
+        </a>
+        <a href="{% url 'myprofile_post' profile.pk %}" class="button is-info"> See Posts
+          <span class="icon">
+              <i class="fas fa-edit"></i>
+          </span>
+      </a>
+        <a href="{% url 'post_delete' profile.pk %}" class="button is-danger">
+            <span class="icon">
+                <i class="fas fa-trash-alt"></i>
+            </span>
+        </a>
+    </div>
+    </div>
   {% empty %}
   <article class="message">
     <div class="message-header">
