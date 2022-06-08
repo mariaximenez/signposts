@@ -2,16 +2,16 @@
 {% block content %}
 
 <div class="detail__container">
-  {% for post in posts.all %}
+  
   <div class="buttons">
       <div class="buttons">
-      <a href="{% url 'post_create' post.pk %}" class="button is-info"> Create a Post
+      <a href="{% url 'post_create' pk %}" class="button is-info"> Create a Post
           <span class="icon">
               <i class="fas fa-edit"></i>
           </span>
       </a>
   </div>
-  {% endfor %}
+  
   </div>
 
   
