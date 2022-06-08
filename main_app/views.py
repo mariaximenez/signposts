@@ -46,6 +46,16 @@ class ProfileDetail(DetailView):
     model = ProfileModel
     template_name = "profile_detail.html"
 
+class GroupCreate(CreateView):
+    model = GroupModel
+    fields = ['name', 'goal', 'goal_img']
+    template_name = "group_create.html"
+    success_url = "/myprofile/"
+
+    # def get_success_url(self):
+    #     return reverse('profile_detail', {'pk': self.object.pk})
+
+
 
 class GroupUpdate(UpdateView):
     model = GroupModel

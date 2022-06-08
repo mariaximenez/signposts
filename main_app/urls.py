@@ -13,6 +13,7 @@ urlpatterns = [
     path('myprofile/', views.MyProfileDetail.as_view(), name="myprofile_detail"),
     path('myprofile/<int:pk>/', views.MyProfilePost.as_view(), name="myprofile_post"),
     path('myprofile/new', views.ProfileCreate.as_view(), name="profile_create"),
+    path('myprofile/newgroup', views.GroupCreate.as_view(), name="group_create"),
     path('groups/<int:pk>/', views.MyGroupPost.as_view(), name="group_detail"),
     path('groups/<int:pk>/new', views.PostCreate.as_view(), name="post_create"),
     path('groups/<int:pk>/update/', views.PostUpdate.as_view(), name="post_update"),
