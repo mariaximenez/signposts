@@ -66,9 +66,10 @@ class ProfileUpdate(UpdateView):
     model = ProfileModel
     fields = ['name', 'badge_num', 'goal_description', 'avatar_img', 'group']
     template_name = "profile_update.html"
-
-    def get_success_url(self):
-        return reverse('myprofile_detail', kwargs={'pk': self.object.pk})
+    success_url = "/myprofile/"
+    
+    # def get_success_url(self):
+    #     return reverse('myprofile_detail', kwargs={'pk': self.object.pk})
 
 
 class ProfileDelete(DeleteView):
@@ -88,9 +89,12 @@ class MyProfileDetail(TemplateView):
             user=self.request.user)
         return context
 
+class MyProfilePost(TemplateView):
+    template_name = "myprofile_post.html"
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["posts"] = PostModel.objects.all()
+        user=self.request.user
+        context["posts"] = PostModel.objects.filter(name=user)
         return context
 
 
