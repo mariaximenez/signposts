@@ -23,17 +23,23 @@
   
     <div class="buttons">
         <div class="buttons">
-        <a href="{% url 'post_update' profile.pk %}" class="button is-info"> Updates
-            <span class="icon">
-                <i class="fas fa-edit"></i>
-            </span>
-        </a>
+       
         <a href="{% url 'myprofile_post' profile.pk %}" class="button is-info"> See Posts
           <span class="icon">
               <i class="fas fa-edit"></i>
           </span>
       </a>
-        <a href="{% url 'post_delete' profile.pk %}" class="button is-danger">
+      <a href="{% url 'post_create' profile.pk %}" class="button is-info"> Create a New Post
+        <span class="icon">
+            <i class="fas fa-edit"></i>
+        </span>
+    </a>
+    <a href="{% url 'profile_update' profile.pk %}" class="button is-info"> Update Your Profile
+      <span class="icon">
+          <i class="fas fa-edit"></i>
+      </span>
+  </a>
+        <a href="{% url 'profile_delete' profile.pk %}" class="button is-danger"> Delete Your Profile
             <span class="icon">
                 <i class="fas fa-trash-alt"></i>
             </span>
