@@ -60,7 +60,7 @@ class Comment(models.Model):
     text = models.TextField(max_length=500)
     name = models.CharField(max_length=80, default='mary')
     date = models.DateTimeField(auto_now_add=True)
-    posts = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments", default='1')
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments", default='1')
    
     
     def __str__(self):
