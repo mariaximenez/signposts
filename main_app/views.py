@@ -119,15 +119,6 @@ class MyProfilePost(TemplateView):
         context["posts"] = PostModel.objects.filter(profile=context['pk'])
         return context
     
-   
-   
-   
-    
-        
-        
-  
-
-
 
 class ProfileCreate(CreateView):
     model = ProfileModel
