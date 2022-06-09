@@ -26,12 +26,11 @@ class Group(models.Model):
 class Profile(models.Model):
 
     name = models.CharField(max_length=150)
-    badge_num= models.IntegerField(default=0)
     goal_description = models.CharField(max_length=500, default='1')
     avatar_img = models.CharField(max_length=500,default='1')
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="posts")
     group = models.ForeignKey(Group, on_delete=models.CASCADE, related_name="profiles", default='1')
-   
+    badge_image = models.ImageField(default='', blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -40,11 +39,15 @@ class Profile(models.Model):
     @property
     def badge_image(self):
         if self.user.post.count() >= 20:
-             badge_image = 'images/cloud.png'
-        elif self.user.post.count() >= 3:
-             badge_image = 'images/path.png'
+             badge_image = 'https://media1.thehungryjpeg.com/thumbs2/800_3844600_uw12mjl5avul5fjmb2ori0y7ei42sr5ikz61jwio_watercolor-forest-path-set.png'
+        elif self.user.post.count() >= 15:
+             badge_image = 'main_app/images/path.png'
+        elif self.user.post.count() >= 10:
+             badge_image = 'main_app/images/wood.png'
+        elif self.user.post.count() >= 5:
+             badge_image = 'https://media1.thehungryjpeg.com/thumbs2/800_3844600_uw12mjl5avul5fjmb2ori0y7ei42sr5ikz61jwio_watercolor-forest-path-set.png'
         else:
-             badge_image ='images/sprout.png'
+             badge_image ='main_app/images/cloud.png'
         return badge_image
 
 
