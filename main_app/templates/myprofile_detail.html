@@ -1,31 +1,33 @@
 {% extends 'base.html' %} {% block content %}
 {% load static %}
 
-<div class="detail__container">
+<div class="container">
 {% for profile in profile.all %}
 
-<div class="profile_create">
+<div class="level-right">
   <a href="/myprofile/new"> Create Your Profile</a>
 </div>
-<div class="group_create">
+<div class="level-right">
   <a href="/myprofile/newgroup"> Create a New Group</a>
 </div>
-<div class="detail__img">
+<div class="level-right">
+  <img src="{{profile.status_img}}" alt="{{profile.name}}" />
+</div>
+<div class="level-left">
   <img src="{{profile.avatar_img}}" alt="{{profile.name}}" />
 </div>
 
 
  
-  <div class="bio_container">
+  <div class="level-left">
     <span>{{forloop.counter}}</span>
     <span><b>{{profile.name}}</b></span>
+   </div>
+   
+    <div class="level-right"></div>
     <span>{{profile.goal_description}}</span>
-    <div class="status_container">
-      <img src="{{profile.status_img}}" alt="{{profile.name}}" />
-    </div>
-    
   </div>
-  <div class="detail__container">
+  <div class="button_container">
   
     <div class="buttons">
         <div class="buttons">

@@ -1,24 +1,33 @@
 
-.detail_container {
-
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-end;
+    margin: 50px 5px 20px 20px;
     
+} 
+
+.box {
+   
 }
 
 
 
-
-.bio_container {
+.container .bio {
     color:  #ffffff;
+    align-self: flex-start;
 
 
 }
 
-.status_container {
+.container .status {
+    display: flex;
+    align-self: flex-end;
+    margin: 50px 45px 60px 20px;
 
-
-}
-
-
+} 
 
 
 
@@ -56,4 +65,4 @@ h3 {
 
 p {
     font-size: 12px;
-}
+} */
