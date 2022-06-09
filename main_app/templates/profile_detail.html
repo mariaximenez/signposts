@@ -1,20 +1,26 @@
 {% extends 'base.html' %} {% block content %}
 
+<div class="container">
+  <div class="level-right">
 
-<div class="detail__img">
+ 
+    <img src="{{profile.status_img}}" alt="{{profile.name}}" />
+  </div>
+<div class="level-left">
     <img src="{{profile.avatar_img}}" alt="{{profile.name}}" />
+    </div>
+    <div clas="leve-left">
+    <span><b>{{profile.name}}</b></span>
+    <span><b>{{profile.group}}</b></span>
+    <span>{{profile.goal_description}}</span>
+  </div>
      
 </div>
-<div class="detail__container">
 
-  <span><b>{{profile.name}}</b></span>
-  <span><b>{{profile.group}}</b></span>
-  <img src="{{profile.status_img}}" alt="{{profile.name}}" />
-</div>
-<span>{{profile.goal_description}}</span>
+
 
 </div>
-
+</div>
   
 
 {% endblock %}

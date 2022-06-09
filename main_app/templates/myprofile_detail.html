@@ -24,9 +24,7 @@
     <span><b>{{profile.name}}</b></span>
    </div>
    
-    <div class="level-right"></div>
-    <span>{{profile.goal_description}}</span>
-  </div>
+    
   <div class="button_container">
   
     <div class="buttons">
@@ -54,7 +52,11 @@
         </a>
     </div>
     </div>
+    <div class="level-right"></div>
+    <span>{{profile.goal_description}}</span>
+  </div>
   {% empty %}
+  
   <article class="message">
     <div class="message-header">
       <p>No Profile Available</p>
