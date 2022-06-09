@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.forms import URLInput
 
 
 
@@ -30,25 +31,14 @@ class Profile(models.Model):
     avatar_img = models.CharField(max_length=500,default='1')
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="posts")
     group = models.ForeignKey(Group, on_delete=models.CASCADE, related_name="profiles", default='1')
-    badge_image = models.ImageField(default='', blank=True, null=True)
+    status_img = models.CharField(max_length=500,default='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToCXRtr20DkXHw0BW6034Mz1JihWvkDhGcPg&usqp=CAU')
+
+    
 
     def __str__(self):
         return self.name
-    
 
-    @property
-    def badge_image(self):
-        if self.user.post.count() >= 20:
-             badge_image = 'https://media1.thehungryjpeg.com/thumbs2/800_3844600_uw12mjl5avul5fjmb2ori0y7ei42sr5ikz61jwio_watercolor-forest-path-set.png'
-        elif self.user.post.count() >= 15:
-             badge_image = 'main_app/images/path.png'
-        elif self.user.post.count() >= 10:
-             badge_image = 'main_app/images/wood.png'
-        elif self.user.post.count() >= 5:
-             badge_image = 'https://media1.thehungryjpeg.com/thumbs2/800_3844600_uw12mjl5avul5fjmb2ori0y7ei42sr5ikz61jwio_watercolor-forest-path-set.png'
-        else:
-             badge_image ='main_app/images/cloud.png'
-        return badge_image
+
 
 
 class Post(models.Model):
@@ -58,7 +48,7 @@ class Post(models.Model):
     name = models.CharField(max_length=80, default='mary')
     group = models.ForeignKey(Group, on_delete=models.CASCADE, related_name="post", default='1')
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name="post", default='1')
-   
+    
     
     
    

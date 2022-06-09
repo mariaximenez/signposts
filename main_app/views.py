@@ -81,7 +81,7 @@ class GroupDelete(DeleteView):
 
 class ProfileUpdate(UpdateView):
     model = ProfileModel
-    fields = ['name', 'badge_num', 'goal_description', 'avatar_img', 'group']
+    fields = ['name','goal_description', 'avatar_img', 'group']
     template_name = "profile_update.html"
     success_url = "/myprofile/"
     
@@ -105,13 +105,7 @@ class MyProfileDetail(TemplateView):
         context["profile"] = ProfileModel.objects.filter(user=self.request.user)
         return context
 
-  
-    # def badge_num(request):
-    #     # badge_num = PostModel.objects.filter(user=request.user).count()
-    #     badge_num = PostModel.objects.filter(user['pk']).count()
-    #     return render(request, 'myprofile_detail.html', {'badge_num': badge_num})
-    # print(PostModel.objects.count())
-    # print(badge_num)
+ 
 
 
 

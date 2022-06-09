@@ -50,8 +50,10 @@
             </div>
         </nav>
         <div class="container">
+           
+            {% block content %}
             <img src={% static user.profile.badge_image %}>
-            {% block content %}{% endblock %}
+            {% endblock %}
 
         </div>
       </div>

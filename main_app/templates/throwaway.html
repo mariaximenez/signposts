@@ -62,7 +62,19 @@ class MyGroupDetail(TemplateView):
   </div>
   </div>
 
-
+  @property
+  def badge_image(self):
+      if self.user.post.count() >= 20:
+           badge_image = 'https://media1.thehungryjpeg.com/thumbs2/800_3844600_uw12mjl5avul5fjmb2ori0y7ei42sr5ikz61jwio_watercolor-forest-path-set.png'
+      elif self.user.post.count() >= 15:
+           badge_image = 'main_app/images/path.png'
+      elif self.user.post.count() >= 10:
+           badge_image = 'main_app/images/wood.png'
+      elif self.user.post.count() >= 5:
+           badge_image = 'https://media1.thehungryjpeg.com/thumbs2/800_3844600_uw12mjl5avul5fjmb2ori0y7ei42sr5ikz61jwio_watercolor-forest-path-set.png'
+      else:
+           badge_image ='main_app/images/cloud.png/'
+      return badge_image
 
 
 
