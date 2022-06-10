@@ -1,39 +1,4 @@
 
-.container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-end;
-    margin: 50px 5px 20px 20px;
-    background-color: #AA96DA;
-    
-} 
-
-
-
-
-.box {
-    background-color: #AA96DA;
-}
-
-
-
-.container .bio {
-    background-color: #AA96DA;
-    align-self: flex-start;
-
-
-}
-
-.container .status {
-    display: flex;
-    align-self: flex-end;
-    margin: 50px 45px 60px 20px;
-
-} 
-
-
 
 body {
     background-color: red;
