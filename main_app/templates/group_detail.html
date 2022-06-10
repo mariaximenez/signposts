@@ -1,30 +1,21 @@
 {% extends 'base.html' %} 
 {% block content %}
 
-<div class="detail__container">
-  
-  <div class="buttons">
-      <div class="buttons">
-      <a href="{% url 'post_create' pk %}" class="button is-info"> Create a Post
-          <span class="icon">
-              <i class="fas fa-edit"></i>
-          </span>
-      </a>
-  </div>
-  
-  </div>
 
   
+ 
   <div class="detail__container">
-      {% for post in posts.all %}
-      <div class="museum">
-        <span>{{forloop.counter}}</span>
-        <span><b>{{post.profile}}</b></span>
-        <div>{{post.text}}</div>
-        <div>{{post.group}}</div>
-        <div>{{post.date}}</div>
-        
+    {% for post in posts.all %}
+    <div class="museum">
+      <span>{{forloop.counter}}</span>
+      <span><b>{{post.profiles}}</b></span>
+      <div class="text has-text-grey">{{post.text}}</div>
+      <div class="level-right">
+        <div class="text has-text-danger-dark">{{post.name}}</div>
+      <div class="text has-text-info-dark"><br>{{post.date}}<br></div>
       </div>
+      </div>
+
 
 
      

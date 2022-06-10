@@ -1,0 +1,86 @@
+{% extends 'base.html' %} {% block content %}
+{% load static %}
+
+<div class="container">
+    {% for profile in profile.all %}
+<nav class="level">
+    <!-- Left side -->
+    <div class="level-right">
+      <div class="level-item">
+        <div class="subtitle is-5">
+            <div class="profile_create">
+                <a href="/myprofile/new"> Create Your Profile</a>
+              </div>
+              <div class="group_create">
+                <a href="/myprofile/newgroup"> Create a New Group</a>
+              </div>
+      </div>
+      <div class="level-item">
+       <div class="image">
+        <div class="status">
+            <img src="{{profile.status_img}}" alt="{{profile.name}}" />
+          </div>
+
+       </div>
+
+        </div>
+      </div>
+    </div>
+  </nav>
+    <!-- Right side -->
+    <nav class="level">
+    <div class="level-left">
+      <divclass="level-item">
+        <div class="detail">
+            <img src="{{profile.avatar_img}}" alt="{{profile.name}}" />
+          </div>   
+      </div>
+      <div class="level-item">
+        <span>{{forloop.counter}}</span>
+        <span><b>{{profile.name}}</b></span>
+        <span>{{profile.goal_description}}</span>
+        </div>
+
+
+      <div class="level-item">
+        <div class="buttons">
+            <div class="buttons">
+           
+            <a href="{% url 'myprofile_post' profile.pk %}" class="button is-info"> See Posts
+              <span class="icon">
+                  <i class="fas fa-edit"></i>
+              </span>
+          </a>
+          <a href="{% url 'post_create' profile.pk %}" class="button is-info"> Create a New Post
+            <span class="icon">
+                <i class="fas fa-edit"></i>
+            </span>
+        </a>
+        <a href="{% url 'profile_update' profile.pk %}" class="button is-info"> Update Your Profile
+          <span class="icon">
+              <i class="fas fa-edit"></i>
+          </span>
+      </a>
+            <a href="{% url 'profile_delete' profile.pk %}" class="button is-danger"> Delete Your Profile
+                <span class="icon">
+                    <i class="fas fa-trash-alt"></i>
+                </span>
+            </a>
+        </div>
+        </div>
+      {% empty %}
+      </div>
+
+      <article class="message">
+        <div class="message-header">
+          <p>No Profile Available</p>
+        </div>
+      </article>
+      
+      {% endfor %}
+    </div>
+    </div>
+</nav>
+    
+    {% endblock %}
+  

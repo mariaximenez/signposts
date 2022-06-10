@@ -45,7 +45,7 @@ class Post(models.Model):
 
     text = models.TextField(max_length=500)
     date = models.DateTimeField(auto_now_add=True)
-    name = models.CharField(max_length=80, default='mary')
+    name = models.CharField(max_length=80)
     group = models.ForeignKey(Group, on_delete=models.CASCADE, related_name="post", default='1')
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name="post", default='1')
     
