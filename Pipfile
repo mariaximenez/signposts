@@ -5,8 +5,8 @@ name = "pypi"
 
 [packages]
 django = "*"
+psycopg2 = "*"
 django-on-heroku = "*"
-django-heroku = "*"
 
 [dev-packages]
 

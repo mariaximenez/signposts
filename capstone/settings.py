@@ -1,5 +1,6 @@
 from pathlib import Path
 import os
+import django_on_heroku
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -124,3 +125,4 @@ LOGIN_REDIRECT_URL = '/profiles/'
 LOGOUT_REDIRECT_URL = '/'
 
 
+django_on_heroku.settings(locals())

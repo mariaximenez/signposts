@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "76e3e0d3a4db72a4fe95176b7760dbc52b4812b9cb310e58bc9af62855b3a011"
+            "sha256": "7d75fd65e600c6e3782b2949e9091da375fc7f99dc8bbf2bd3c070819dfc6bf2"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -39,14 +39,6 @@
             "index": "pypi",
             "version": "==4.0.5"
         },
-        "django-heroku": {
-            "hashes": [
-                "sha256:2bc690aab89eedbe01311752320a9a12e7548e3b0ed102681acc5736a41a4762",
-                "sha256:6af4bc3ae4a9b55eaad6dbe5164918982d2762661aebc9f83d9fa49f6009514e"
-            ],
-            "index": "pypi",
-            "version": "==0.3.1"
-        },
         "django-on-heroku": {
             "hashes": [
                 "sha256:4a72ade056335112cba22eea332552d840b718dd8140d43c2d70bb739875955b",
@@ -69,7 +61,7 @@
                 "sha256:cb10d44e6694d763fa1078a26f7f6137d69f555a78ec85dc2ef716c37447e4b2",
                 "sha256:d3ca6421b942f60c008f81a3541e8faf6865a28d5a9b48544b0ee4f40cac7fca"
             ],
-            "markers": "python_version >= '3.6'",
+            "index": "pypi",
             "version": "==2.9.3"
         },
         "psycopg2-binary": {
