@@ -13,7 +13,19 @@
         <script src="{% static 'scripts/main.js' %}" defer></script>
     </head>
     <header>
-        <section class="hero is-medium is-primary">
+        <section class="hero is-small is-primary">
+            <div class="level-right">
+                <h1 class="title">Log In</h1>
+                <form method="post" action="{% url 'login' %}">
+                    {% csrf_token %} {{ form.as_p }}
+                    <input type="submit" class="btn" value="login" />
+                    <input type="hidden" name="next" value="{{ next }}" />
+                </form>
+                </div>
+
+        </section>
+        
+        <section class="hero is-small is-primary">
             <div class="hero-body">
               <p class="title">
                 Signposts
@@ -23,6 +35,7 @@
               </p>
             </div>
           </section>
+         
     </header>
     <body class="body has-background-danger-light">
         <nav class="navbar has-background-info-light role="navigation" aria-label="main navigation">
