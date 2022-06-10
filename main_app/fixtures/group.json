@@ -1,0 +1,22 @@
+[
+    {
+      "model": "main_app.group",
+      "pk": 5,
+      "fields": {
+        "name": "John",
+        "goal": "Snow",
+        "goal_img": "1"
+      }
+    },
+    {
+      "model": "main_app.group",
+      "pk": 6,
+      "fields": {
+        "name": "Paul",
+        "goal": "McCartney",
+        "goal_img": "2"
+      }
+    }
+  ]
+  
+  
