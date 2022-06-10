@@ -1,15 +1,17 @@
 {% extends 'base.html' %} {% block content %}
 {% load static %}
 
-<div class="container">
-{% for profile in profile.all %}
-
 <div class="level-right">
   <a href="/myprofile/new"> Create Your Profile</a>
 </div>
 <div class="level-right">
   <a href="/myprofile/newgroup"> Create a New Group</a>
 </div>
+
+<div class="container">
+{% for profile in profile.all %}
+
+
 <div class="level-right">
   <div class="box">
   <img src="{{profile.status_img}}" alt="{{profile.name}}" />
