@@ -6,17 +6,21 @@
     justify-content: center;
     align-items: flex-end;
     margin: 50px 5px 20px 20px;
+    background-color: #AA96DA;
     
 } 
 
+
+
+
 .box {
-   
+    background-color: #AA96DA;
 }
 
 
 
 .container .bio {
-    color:  #ffffff;
+    background-color: #AA96DA;
     align-self: flex-start;
 
 
@@ -32,15 +36,14 @@
 
 
 body {
-    background-color: #121212;
-    color: #ffffff;
+    background-color: red;
     min-height: 100vh;
 }
 
 h1,
 h2,
 h3 {
-    color: #ffffff;
+    color: red;
 }
 
 .title {
@@ -65,4 +68,4 @@ h3 {
 
 p {
     font-size: 12px;
-} */
+} 

@@ -2,7 +2,6 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -13,8 +12,20 @@
         <link rel="stylesheet" href="{% static 'styles/main.css' %}" />
         <script src="{% static 'scripts/main.js' %}" defer></script>
     </head>
-    <body >
-        <nav class="navbar is-black" role="navigation" aria-label="main navigation">
+    <header>
+        <section class="hero is-medium has-background-link-dark">
+            <div class="hero-body">
+              <p class="title">
+                Signposts
+              </p>
+              <p class="subtitle">
+                Stay Accountable with each Post
+              </p>
+            </div>
+          </section>
+    </header>
+    <body class="body has-background-danger-light">
+        <nav class="navbar has-background-info-light role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
                 <a class="navbar-item" href="/">Signposts</a>
                 <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
@@ -46,7 +57,7 @@
                 <a class="navbar-item" href="/myprofile"> My Profile</a>
             </div>
         </nav>
-        <div class="container">
+        <div class="container has-background-danger-light" class="container has-text-grey">
            
             {% block content %}
             {% endblock %}
