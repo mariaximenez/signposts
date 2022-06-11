@@ -5,13 +5,25 @@
 
 }
 
+
+
+
 .box {
     background-color: white cream;
+    box-shadow: 0 0.5em 1em -0.125em rgba(scheme-invert, 0.1), 0 0px 0 1px rgba(scheme-invert, 0.02);
+    
+}
+
+
+.box:hover {
+    transform: scale(1.1);
+    z-index: 10;
 }
 
 body {
     background-color: mintcream;
     min-height: 100vh;
+    font-size: size-4;
 }
 
 h1,

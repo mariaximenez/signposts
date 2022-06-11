@@ -26,9 +26,9 @@ class Group(models.Model):
 
 class Profile(models.Model):
 
-    name = models.CharField(max_length=150, default='my name')
-    goal_description = models.CharField(max_length=500, default='my goal')
-    avatar_img = models.CharField(max_length=500,default='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPgEmtQwrC7r80BUtMhPaF6okDFFu41i5fRQ&usqp=CAU')
+    name = models.CharField(max_length=150)
+    goal_description = models.CharField(max_length=500)
+    avatar_img = models.CharField(max_length=500)
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="posts")
     group = models.ForeignKey(Group, on_delete=models.CASCADE, related_name="profiles", default='1')
     status_img = models.CharField(max_length=500,default='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToCXRtr20DkXHw0BW6034Mz1JihWvkDhGcPg&usqp=CAU')
