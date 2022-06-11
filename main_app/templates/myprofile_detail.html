@@ -11,7 +11,7 @@
 <div class="container">
 {% for profile in profile.all %}
 
-<div class="box">
+<div class="box is-small">
 <div class="level-right">
   <img src="{{profile.status_img}}" alt="{{profile.name}}" />
 </div>
@@ -19,7 +19,7 @@
 
 
  
-  <div class="box">
+  <div class="box ">
     <div class="level-left">
       <img src="{{profile.avatar_img}}" alt="{{profile.name}}" />
     </div>
@@ -33,17 +33,17 @@
     <div class="buttons">
         <div class="buttons">
        
-        <a href="{% url 'myprofile_post' profile.pk %}" class="button is-info"> See Posts
+        <a href="{% url 'myprofile_post' profile.pk %}" class="button is-primary"> See Posts
           <span class="icon">
               <i class="fas fa-edit"></i>
           </span>
       </a>
-      <a href="{% url 'post_create' profile.pk %}" class="button is-info"> Create a New Post
+      <a href="{% url 'post_create' profile.pk %}" class="button is-primary"> Create a New Post
         <span class="icon">
             <i class="fas fa-edit"></i>
         </span>
     </a>
-    <a href="{% url 'profile_update' profile.pk %}" class="button is-info"> Update Your Profile
+    <a href="{% url 'profile_update' profile.pk %}" class="button is-primary"> Update Your Profile
       <span class="icon">
           <i class="fas fa-edit"></i>
       </span>
