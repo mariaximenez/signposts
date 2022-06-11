@@ -11,19 +11,18 @@
 <div class="container">
 {% for profile in profile.all %}
 
-
+<div class="box">
 <div class="level-right">
-  <div class="box">
   <img src="{{profile.status_img}}" alt="{{profile.name}}" />
 </div>
-</div>
-<div class="level-left">
-  <img src="{{profile.avatar_img}}" alt="{{profile.name}}" />
 </div>
 
 
  
-  <div class="level-left">
+  <div class="box">
+    <div class="level-left">
+      <img src="{{profile.avatar_img}}" alt="{{profile.name}}" />
+    </div>
     <span>{{forloop.counter}}</span>
     <span><b>{{profile.name}}</b></span>
    </div>
