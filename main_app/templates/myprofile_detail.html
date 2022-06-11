@@ -1,5 +1,8 @@
 {% extends 'base.html' %} {% block content %}
 {% load static %}
+
+<div class="columns">
+  <div class="column is-full">
 <div class="is-size-4">
 <div class="level-right">
   <a href="/myprofile/new"> Create Your Profile</a>
@@ -11,17 +14,22 @@
 <div class="container">
 {% for profile in profile.all %}
 
-<div class="box is-small">
+<div class="">
 <div class="level-right">
+  <figure class="image is-500x500">
   <img src="{{profile.status_img}}" alt="{{profile.name}}" />
+  </figure>
+</div>
 </div>
 </div>
 
-
- 
-  <div class="box ">
+<div class="column is-two-thirds">
+  <div class="">
     <div class="level-left">
-      <img src="{{profile.avatar_img}}" alt="{{profile.name}}" />
+      <figure class="image is-500x500">
+        <img src="{{profile.avatar_img}}" alt="{{profile.name}}" />
+      </figure>
+      
     </div>
     <span>{{forloop.counter}}</span>
     <span><b>{{profile.name}}</b></span>
@@ -59,7 +67,7 @@
     <span>{{profile.goal_description}}</span>
   </div>
   {% empty %}
-  
+</div>
   <article class="message">
     <div class="message-header">
       <p>No Profile Available</p>
@@ -70,5 +78,7 @@
 </div>
 </div>
 </div>
+</div>
+
 
 {% endblock %}
