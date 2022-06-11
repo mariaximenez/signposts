@@ -2,26 +2,40 @@
 {% block content %}
 
 
-  
+
 <div class="columns">
-<div class="column is-two-thirds">
-<div class="detail__container">
-  {% for post in posts.all %}
-  
-  <div class="is-size-4">
-    <span>{{forloop.counter}}</span>
-    <span><b>{{post.profiles}}</b></span>
-    <div class="box">
-    <div class="text has-text-grey">{{post.text}}</div>
-    <div class="level-right">
-    <div class="text has-text-info-dark">{{post.name}}</div>
-    <div class="text has-text-info-dark"><br>{{post.date}}<br></div>
-    </div>
-    </div>
-  </div>
-</div>
-
-
+  <div class="column is-two-thirds">
+  <div class="detail__container">
+      {% for post in posts.all %}
+      
+      <div class="is-size-4">
+        <span>{{forloop.counter}}</span>
+        <span><b>{{post.profiles}}</b></span>
+        <div class="box">
+        <div class="text has-text-grey">{{post.text}}</div>
+        <div class="level-right">
+        <div class="text has-text-info-dark">{{post.name}}</div>
+        <div class="text has-text-info-dark"><br>{{post.date}}<br></div>
+        </div>
+        </div>
+        <div class="detail__container">
+          <div class="level-right">
+          <div class="buttons">
+              <div class="buttons">
+              <a href="{% url 'post_update' post.pk %}" class="button is-primary"> Edit Post
+                  <span class="icon">
+                      <i class="fas fa-edit"></i>
+                  </span>
+              </a>
+              <a href="{% url 'post_delete' post.pk %}" class="button is-danger"> Delete
+                  <span class="icon">
+                      <i class="fas fa-trash-alt"></i>
+                  </span>
+              </a>
+          </div>
+          </div>
+          </div>
+        </div>
 
      
           {% empty %}
@@ -33,6 +47,7 @@
    
       {% endfor %}
     </div>
+  </div>
+</div>
   
   {% endblock %}
-
