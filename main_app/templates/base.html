@@ -13,20 +13,9 @@
         <script src="{% static 'scripts/main.js' %}" defer></script>
     </head>
     <header>
-        <section class="hero is-small is-primary">
-            <div class="container_login">
-                <div class="level-right">
-                    <h1 class="title">Log In</h1>
-                    <form method="post" action="{% url 'login' %}">
-                        {% csrf_token %} {{ form.as_p }}
-                        <input type="submit" class="btn" value="login" />
-                        <input type="hidden" name="next" value="{{ next }}" />
-                    </form>
-                    </div>
-            </div>
-                </section>
+      
 
-            <section class="hero is-small is-primary">
+            <section class="hero is-medium is-primary">
                 <div class="hero-body">
                   <p class="title">
                     Signposts

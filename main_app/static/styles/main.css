@@ -1,19 +1,23 @@
 .container_login {
     display: flex;
-    align-self: flex-end;
-    margin: 50px 20px 20px 20px;
+    justify-content: center;
+    margin: 100px 50px 50px 50px;
 
 }
 
+.box {
+    background-color: white cream;
+}
+
 body {
-    background-color: red;
+    background-color: mintcream;
     min-height: 100vh;
 }
 
 h1,
 h2,
 h3 {
-    color: red;
+    color: midnightblue;
 }
 
 .title {
