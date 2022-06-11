@@ -18,10 +18,11 @@ h1,
 h2,
 h3 {
     color: midnightblue;
+    font-size: 20px;
 }
 
 .title {
-    color: #ffffff;
+    color: midnightblue;
 }
 
 .gallery {
@@ -41,5 +42,5 @@ h3 {
 }
 
 p {
-    font-size: 12px;
+    font-size: 17px;
 } 
