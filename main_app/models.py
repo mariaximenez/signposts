@@ -31,7 +31,7 @@ class Profile(models.Model):
     avatar_img = models.CharField(max_length=500)
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="posts")
     group = models.ForeignKey(Group, on_delete=models.CASCADE, related_name="profiles", default='1')
-    status_img = models.CharField(max_length=500,default='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToCXRtr20DkXHw0BW6034Mz1JihWvkDhGcPg&usqp=CAU')
+    status_img = models.CharField(max_length=500,default='https://cdn.dribbble.com/users/1746650/screenshots/4656451/11.png')
 
     
 
