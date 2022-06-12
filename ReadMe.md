@@ -1,13 +1,14 @@
+Signposts
+Stay Accountable with each Post
+
+Check out the deployed app here: https://signposts.herokuapp.com/
 
 
+It's not easy to stay accountable to ourselves. When no one is looking, we grab that extra cookie or press the snooze button and miss our morning run. And most of these acts are harmless. However, a series of these acts builds a habit that can hold us back from our full potential. 
 
-I am building an app that helps a user stay accountable to a set goal through a daily check-in with a group/community. The check-in will consist of a 500 character or less reflection on the actions, thoughts, and feelings that arose when attempting to commit to the set goal. 
+The app Signposts will help users stick to their goals. Once signed up, users can join a group aligned to their current goal. Through daily check-ins, users will stay accountable to themselves but also can help motivate and inspire others by their committment to post.
 
-I can implement a user model and a group model with a one-to-many relationship. The user can be apart of other groups, but it is more likely that they will focus on one group. Each group will have a goal attribute.
 
-Users can sign-up for the app, and then log-in to their profile page. The profile page will display their goal, group name, individual group member usernames, the posts they created, and the badges they earned for daily check-ins. On the profile page, you will be able to add users to your group, delete and update your past posts
-
-There will also be the accountability reflection page where all the users of a specific group can add their goal reflections. Goal reflections will be displayed by date. Goal reflections will also have space for comments.
 
 
 Features
@@ -16,20 +17,32 @@ Models:
 User Model
 Group Model
 Post Model
-Comment Model
 Profile Model
 
 Functionality
 User Sign-up
 User Log-in
-User Add User to Group
 Add self to Group
-Post reflection to Group Page
-Post Comment to reflection
-Earn badge for post
-Display posts and comments on Group page
-Display username, group name, group goal, and group members on profile page
-User Stories: Who is your user?
+Post post/reflection to Group Page
+Display username, group name, group goal on profile page
+
+Technologies Used: Python, Django, Bulma, Postgresql database
+
+Necessary Installations for developers:
+Django Environment: 
+pip3 install pipenv
+pipenv install django
+pipenv shell
+
+Postgresql Database:
+create db <signposts>
+python3 manage.py migrate
+
+
+To run server:
+python3 manage.py runserver
+
+
 
 My user has a common goal shared with friends, such as eating healthy, exercising more, quitting a bad habit like smoking, or a commitment to be more mindful, connected, or adventurous.
 
@@ -53,20 +66,18 @@ Data Models:
 [ERD CAPSTONE PROJECT.pdf](https://github.com/mariaximenez/signposts/files/8834790/ERD.CAPSTONE.PROJECT.pdf)
 
 
-Milestones: 
+
+Future features:
+
+A comment model that is connecte to the Profile and Post Model
+
+Group authorization that only allows group members to see posts
+
+A reward system that tracks the number of posts and awards an icon or badge related to the user's "signpost" level
 
 
 
-June 3 (Friday): Planning, Models, Sign-up, Log-In
-June 4 (Saturday): Create, Edit, Delete Post and Comment.
-June 5 (Sunday):  Templates for pages
-June 6 (Monday): Add self to group, Add users to group
-June 7 (Tuesday): Earn badges and display
-June 8 (Wednesday): Stretch goal and styling
-June 9 (Thursday): Stretch goal and styling
-June 10 (Friday): Deploy
-June 11 (Saturday): Presentation and Outcomes
-June 12 (Sunday): Outcomes Assignments
+If you are interested in collaborating and helping me develop this project, please reach out to mtjimenez@gmail.com
 
 
 
