@@ -1,30 +1,64 @@
 {% extends 'base.html' %} {% block content %}
 
-<div class="container">
-  <div class="level-right">
 
-    <figure class="image is-500x500">
-    <img src="{{profile.status_img}}" alt="{{profile.name}}" />
-    </figure>
-  </div>
-<div class="level-left">
-  <figure class="image is-500x500">
-    <img src="{{profile.avatar_img}}" alt="{{profile.name}}" />
-  </figure>
-  
+ <!-- About -->
+ <section class="section" id="about">
+  <!-- Title -->
+  <div class="section-heading">
+    <h3 class="title is-2">About Me</h3>
+    <h4 class="subtitle is-5">{{profile.name}}</h4>
+    <h4 class="subtitle is-5"> <span><b>{{profile.group}}</b></span></h4>
+    <div class="container">
+      <p> <span>{{profile.goal_description}}</span></p>
     </div>
-    <div clas="leve-left">
-    <span><b>{{profile.name}}</b></span>
-    <span><b>{{profile.group}}</b></span>
-    <span>{{profile.goal_description}}</span>
   </div>
-     
-</div>
+
+  <div class="columns has-same-height is-gapless">
+
+    <div class="column">
+      <!-- Profile picture -->
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-500x500">
+            <img src="{{profile.avatar_img}}" alt="{{profile.name}}" />
+          </figure>
+        </div>
+      </div>
+    </div>
+    <div class="column">
+      <!-- Skills -->
+      <div class="card">
+        <div class="card-content skills-content">
+          <h3 class="title is-4">Goal Signpost</h3>
+          <div class="content">
+            <figure class="image is-500x500">
+              <img src="{{profile.status_img}}" alt="{{profile.name}}" />
+              </figure>
+                <article>
+                  <p>
+                    <strong>This is the emerging signpost</strong>
+        
+                  </p>
+                </div>
+              </div>
+            </article>
 
 
 
-</div>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
 
 {% endblock %}
