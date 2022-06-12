@@ -56,7 +56,7 @@ class Post(models.Model):
         return self.text
 
     class Meta:
-        ordering = ['text']
+        ordering = ['date']
 
 
 
