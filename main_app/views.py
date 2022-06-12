@@ -30,6 +30,11 @@ class Home(TemplateView):
 
 
 
+class SignpostLevels(TemplateView):
+        template_name="levels.html"
+
+
+
 
 class ProfileList(TemplateView):
     template_name = "profile_list.html"
