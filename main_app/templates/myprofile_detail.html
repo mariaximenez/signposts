@@ -11,36 +11,71 @@
   <a href="/myprofile/newgroup"> Create a New Group</a>
 </div>
 
+
 <div class="container">
-{% for profile in profile.all %}
-
-<div class="">
-<div class="level-right">
-  <figure class="image is-500x500">
-  <img src="{{profile.status_img}}" alt="{{profile.name}}" />
-  </figure>
-</div>
-</div>
-</div>
-
-<div class="column is-two-thirds">
-  <div class="">
-    <div class="level-left">
-      <figure class="image is-500x500">
-        <img src="{{profile.avatar_img}}" alt="{{profile.name}}" />
-      </figure>
-      
+  {% for profile in profile.all %}
+<section class="section" id="about">
+  <!-- Title -->
+  <div class="section-heading has-text-centered">
+    <h3 class="title is-2">About Me</h3>
+    <h4 class="subtitle is-3">{{profile.name}}</h4>
+    <h4 class="subtitle is-3"> <span><b>Join me @ {{profile.group}}!</b></span></h4>
+    <div class="container">
+    <h4 class="subtitle is-3"> {{profile.goal_description}}</h4>
     </div>
-    <span>{{forloop.counter}}</span>
-    <span><b>{{profile.name}}</b></span>
-   </div>
-   
+  </div>
+
+  <div class="columns has-same-height">
+    <div class="column">
+      <div class="card">
+        <div class="card-image">
+          
+          <figure class="image">
+            <img src="{{profile.avatar_img}}" alt="{{profile.name}}" />
+          </figure>
+          <div class="button_container">
+            <div class="buttons is-right"> 
+          <a href="{% url 'profile_update' profile.pk %}" class="button is-primary"> Update Your Profile
+            <span class="icon">
+                <i class="fas fa-edit"></i>
+            </span>
+        </a>
+              <a href="{% url 'profile_delete' profile.pk %}" class="button is-danger"> Delete Your Profile
+                  <span class="icon">
+                      <i class="fas fa-trash-alt"></i>
+                  </span>
+              </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
     
+    <div class="column">
+      <!-- Skills -->
+      <div class="card">
+        <div class="card-content skills-content has-text-right">
+          <h3 class="title is-4" class="is-right">Goal Signpost</h3>
+          <div class="content has-text-right">
+            <figure class="image">
+              <img src="{{profile.status_img}}" alt="{{profile.name}}" />
+              </figure>
+                <article>
+                  <p  class="is-right">
+                    <strong>This is the emerging signpost</strong>
+        
+                  </p>
+                </div>
+              </div>
+            </article>    
   <div class="button_container">
   
-    <div class="buttons">
-        <div class="buttons">
-       
+    <div class="buttons is-right"> 
         <a href="{% url 'myprofile_post' profile.pk %}" class="button is-primary"> See Posts
           <span class="icon">
               <i class="fas fa-edit"></i>
@@ -51,20 +86,8 @@
             <i class="fas fa-edit"></i>
         </span>
     </a>
-    <a href="{% url 'profile_update' profile.pk %}" class="button is-primary"> Update Your Profile
-      <span class="icon">
-          <i class="fas fa-edit"></i>
-      </span>
-  </a>
-        <a href="{% url 'profile_delete' profile.pk %}" class="button is-danger"> Delete Your Profile
-            <span class="icon">
-                <i class="fas fa-trash-alt"></i>
-            </span>
-        </a>
     </div>
-    </div>
-    <div class="level-right"></div>
-    <span>{{profile.goal_description}}</span>
+    
   </div>
   {% empty %}
 </div>
