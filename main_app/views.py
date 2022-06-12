@@ -149,7 +149,7 @@ class MyGroupPost(TemplateView):
 
 class PostCreate(CreateView):
     model = PostModel
-    fields = ['text', 'group', 'profile']
+    fields = ['text', 'name', 'group', 'profile']
     template_name = "post_create.html"
 
     def get_success_url(self):
