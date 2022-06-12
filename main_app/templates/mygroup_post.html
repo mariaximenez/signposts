@@ -5,7 +5,6 @@
 <div class="detail__container">
     {% for post in posts.all %}
     <div class="museum">
-      <span>{{forloop.counter}}</span>
       <span><b>{{post.profiles}}</b></span>
       <div class="text has-text-grey">{{post.text}}</div>
       <div>{{post.date}}</div>
