@@ -64,8 +64,30 @@ Data Models:
 ![CAPSTONE MODEL DIAGRAM ](https://user-images.githubusercontent.com/101551729/171924350-904b5ba6-dd14-4636-88ec-f4b682d2940b.jpg)
 
 [ERD CAPSTONE PROJECT.pdf](https://github.com/mariaximenez/signposts/files/8834790/ERD.CAPSTONE.PROJECT.pdf)
+  
+Home Page
+<img width="1312" alt="Home Page" src="https://user-images.githubusercontent.com/101551729/173259627-0b6de69b-705c-4156-8b6d-7d83a78a56a2.png">
+  
+Profile Page
+<img width="1185" alt="Profile Page" src="https://user-images.githubusercontent.com/101551729/173259640-357b00bc-6c80-40f1-ab91-eb981f3fe51a.png">
 
+List of Users
+<img width="859" alt="User View Page" src="https://user-images.githubusercontent.com/101551729/173259665-63379d0b-39d9-456c-bc60-8b15f3650758.png">
 
+List of Groups
+<img width="861" alt="Group Display Page" src="https://user-images.githubusercontent.com/101551729/173259695-2b7792f9-6aac-44bf-8867-3644685f281b.png">
+
+ Description of Levels/Signposts
+ ![Description of Levels](https://user-images.githubusercontent.com/101551729/173259712-789c75d8-f921-4261-9d5f-75438f3c34fe.png)
+  
+Posts Page
+<img width="985" alt="Posts page" src="https://user-images.githubusercontent.com/101551729/173259729-ead8f8cb-05d0-4643-9048-364470d21aba.png">
+
+  
+  
+  
+  
+  
 
 Future features:
 
